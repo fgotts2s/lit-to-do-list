@@ -1,5 +1,5 @@
 /**
- * Import Lit modules from Skypack CDN instead of using a bare import to skip the build process.
+ * Import required Lit modules from Skypack CDN instead of using a bare import to skip the build process.
  */
 import {LitElement, html, css} from 'https://cdn.skypack.dev/lit';
 
