@@ -575,8 +575,8 @@ class LitToDoLists extends LitElement {
               (toDoList) => (windowLocationHash === '#all') || (windowLocationHash === '#pending' && !toDoList.done) || (windowLocationHash === '#done' && toDoList.done) ? html`
                 <li id="${toDoList.id}" class="${toDoList.done ? 'done' : 'pending'}">
                   <input @click="${() => this.#toggleToDoList(toDoList.id)}" class="select" type="checkbox" title="Click to mark as ${toDoList.done === false ? 'done' : 'pending'}" .checked="${toDoList.done}"><!--
-               --><label data-created="${toDoList.created}" data-last-renamed="${toDoList.lastRenamed}" data-last-modified="${toDoList.lastUpdated}" class="name">
-                    <a @click="${this.#routeToDoList}" href="/lit-to-do-list/to-do-list/${toDoList.id}">${toDoList.name}</a>
+               --><label data-created="${toDoList.created}" data-last-renamed="${toDoList.lastRenamed}" data-last-modified="${toDoList.lastUpdated}" class="name"><!--
+                 --><a @click="${this.#routeToDoList}" href="/lit-to-do-list/to-do-list/${toDoList.id}">${toDoList.name}</a>
                     <span class="count">(${toDoList.items.length} ${toDoList.items.length === 1 ? 'item' : 'items'}${toDoList.items.length > 0 ? ': ' + toDoList.items.filter(toDoListItem => {return toDoListItem.done !== true}).length + ' pending, ' + toDoList.items.filter(toDoListItem => {return toDoListItem.done !== false}).length + ' done' : ''})</span>
                     <section class="tooltip">
                       <lit-to-do-list-preview id="${toDoList.id}" .toDoList="${toDoList}"></lit-to-do-list-preview>
